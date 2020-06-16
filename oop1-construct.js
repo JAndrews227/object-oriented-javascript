@@ -104,56 +104,46 @@ console.log(animal6);
  */
 
 class Shape {
-  constructor(name, sides, base, height) {
+  constructor(name, sides, base, height, length, width, radius) {
     this.name = name;
     this.sides = sides;
     this.base = base;
     this.height = height;
-    this.area = () => console.log(`${this.base * this.height}`);
+    this.length = length;
+    this.width = width;
+    this.radius = radius;
+
+    //Triangle Formula
+    this.area = () =>
+      console.log(`The area of the Triangle is ${this.base * this.height}`);
     this.perimeter = () =>
-      console.log(`${this.base + this.sides[1] + this.sides[2]}`);
+      console.log(`The perimeter of the Triangle is ${this.base + this.sides[1] + this.sides[2]}`);
+
+    //Rectangle Formula
+    this.area2 = () => console.log(`The area of the Rectangle is ${this.length * this.width}`);
+    this.perimeter2 = () => console.log(`The perimeter of the Rectangle is ${2 * this.length + 2 * this.width}`);
+
+    //Circle Formula
+    this.area3 = () =>
+      console.log(`The area of the Circle is ${(Math.PI * this.radius ** 2).toFixed(2)}`);
+    this.circumference = () => console.log(`The circumference of the Circle is ${(2 * Math.PI * this.radius).toFixed(2)}`);
   }
 }
 
 const shape1 = new Shape('Triangle', [4, 7, 7], 4, 6.7);
-
 console.log(shape1);
 shape1.area();
 shape1.perimeter();
 
-class Shape2 {
-  constructor(name, sides, length, width) {
-    this.name = name;
-    this.sides = sides;
-    this.length = length;
-    this.width = width;
-    this.area = () => console.log(`${this.length * this.width}`);
-    this.perimeter = () => console.log(`${2 * this.length + 2 * this.width}`);
-  }
-}
+const shape2 = new Shape('Rectangle', 4, null, null, 2, 5, null);
+console.log(shape2);
+shape2.area2();
+shape2.perimeter2();
 
-const rect = new Shape2('Rectangle', 4, 2, 5);
-
-console.log(rect);
-rect.area();
-rect.perimeter();
-
-class Shape3 {
-  constructor(name, sides, radius) {
-    this.name = name;
-    this.sides = sides;
-    this.radius = radius;
-    this.area = () => console.log(`${(Math.PI * this.radius ** 2).toFixed(2)}`);
-    this.circumference = () =>
-      console.log(`${(2 * Math.PI * this.radius).toFixed(2)}`);
-  }
-}
-
-const cir = new Shape3('Circle', 1, 5);
-
-console.log(cir);
-cir.area();
-cir.circumference();
+const shape3 = new Shape('Circle', 1, null, null, null, null, 5);
+console.log(shape3);
+shape3.area3();
+shape3.circumference();
 
 /*********************************************** 
 Bonus Exercises:
